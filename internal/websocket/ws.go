@@ -1,6 +1,7 @@
 package websocket
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -108,6 +109,7 @@ func (ws *WebSocket) Send(method string, params []interface{}) (interface{}, err
 		Params: params,
 	}
 
+	fmt.Println("request", request)
 	responseChan, err := ws.createResponseChannel(id)
 	if err != nil {
 		return nil, err
@@ -145,8 +147,11 @@ func (ws *WebSocket) read(v interface{}) error {
 	return json.Unmarshal(data, v)
 }
 
-func (ws *WebSocket) write(v interface{}) error {
-	data, err := json.Marshal(v)
+func (ws *WebSocket) write(v *RPCRequest) error {
+	data := &bytes.Buffer{}
+	encoder := json.NewEncoder(data)
+	encoder.SetEscapeHTML(false)
+	err := encoder.Encode(v)
 	if err != nil {
 		return err
 	}

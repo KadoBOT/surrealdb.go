@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/kadobot/surrealdb.go"
 	"github.com/stretchr/testify/suite"
-	"github.com/surrealdb/surrealdb.go"
 )
 
 // TestDBSuite is a test s for the DB struct
@@ -166,7 +166,8 @@ func (s *SurrealDBTestSuite) TestCreate() {
 		data = append(data,
 			testUser{
 				Username: "johnny",
-				Password: "123"},
+				Password: "123",
+			},
 			testUser{
 				Username: "joe",
 				Password: "123",

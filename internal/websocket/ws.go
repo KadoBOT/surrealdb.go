@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
-	"github.com/surrealdb/surrealdb.go/internal/rand"
+	"github.com/kadobot/surrealdb.go/internal/rand"
 )
 
 const (

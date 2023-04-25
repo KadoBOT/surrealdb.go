@@ -4,11 +4,10 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"reflect"
 	"time"
 
-	"reflect"
-
-	"github.com/surrealdb/surrealdb.go/internal/websocket"
+	"github.com/kadobot/surrealdb.go/internal/websocket"
 )
 
 const statusOK = "OK"

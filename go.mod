@@ -1,4 +1,4 @@
-module github.com/surrealdb/surrealdb.go
+module github.com/kadobot/surrealdb.go
 
 go 1.18
 

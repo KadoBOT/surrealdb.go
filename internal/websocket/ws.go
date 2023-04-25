@@ -158,7 +158,7 @@ func (ws *WebSocket) write(v *RPCRequest) error {
 
 	ws.connLock.Lock()
 	defer ws.connLock.Unlock()
-	return ws.Conn.WriteMessage(websocket.TextMessage, data)
+	return ws.Conn.WriteMessage(websocket.TextMessage, data.Bytes())
 }
 
 func (ws *WebSocket) initialize() {
